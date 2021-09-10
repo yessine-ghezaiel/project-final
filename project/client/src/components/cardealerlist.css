@@ -1,0 +1,25 @@
+.wrapper {
+    display: grid;
+    width:100%;
+    
+    grid-template-columns: 20% 80%;
+  }
+.filtre{
+  position:sticky;
+
+}
+
+
+
+
+
+#left {
+  
+  background-color: aquamarine;
+
+  
+}
+
+#right {
+  background-color: beige;
+}

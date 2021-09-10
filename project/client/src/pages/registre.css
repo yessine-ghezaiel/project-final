@@ -1,0 +1,33 @@
+.bg {
+    background-image: url('./reg1.webp') ; 
+    position:static; 
+    top: -20; 
+    left: 0; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+
+.log{
+    background-image: url('./log.jpg') ; 
+    position:fixed; 
+    top: -20; 
+    left: 0; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    
+    
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}
+.inputs{
+    background-color: blanchedalmond !important;
+    color:white !important;
+}
