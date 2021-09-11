@@ -1,0 +1,18 @@
+{
+    "DB_CONNECTION":{
+        "URI":"mongodb+srv://yess:yo12345@cluster0.tocge.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+    },
+    "SERVER_CONFIG":{
+        "PORT":5000
+    },
+    "JWT_CONFIG":{
+        "SECRET":"MYAPP"
+    },
+    "CLOUDINARY_CONFIG":{
+        "CLOUD_NAME":"yessine",
+        "API_KEY":"878936669182494",
+        "API_SECRET":"svQNaPhPgUnLTjGBBcBzQjd53ks",
+        "PRESET":"yessine"
+    }
+
+}
