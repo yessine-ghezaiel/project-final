@@ -3,10 +3,7 @@
   "version": "1.0.0",
   "description": "project pfe",
   "main": "server.js",
-  "engines":{
-    "node":"13.x",
-    "npm":"6.x"
-  },
+  
   "scripts": {
     "server": "cd server && nodemon server.js",
     "client": "cd client && npm start",
