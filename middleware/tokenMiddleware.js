@@ -4,7 +4,7 @@ const config = require('config')
  const Car = require('../Models/CarDealer')
 const User= require('../models/User')
 const Comment = require('../models/Comment')
-require('dotenv').config({ path: './config/config.env' })
+require('dotenv').config({ path: '../config/config.env' })
 
 const tokenMiddleware = async (req, res, next) => {
     try {

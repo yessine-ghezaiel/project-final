@@ -1,4 +1,4 @@
-const config = require('config')
+// const config = require('config')
 require('dotenv').config({ path: './config/config.env' })
 const cloudinary = require('cloudinary').v2
 
