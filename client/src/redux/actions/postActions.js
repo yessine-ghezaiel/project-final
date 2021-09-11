@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { prefixe } from '../../helpers/constants'
 import { setToken } from '../../helpers/helpers'
-import {  ADD_POST_SUCCESS, DELETE_POST_SUCCESS,  GET_MY_POST_SUCCESS, GET_POST_COUNT_SUCCESS, GET_POST_FAIL, GET_POST_REQUEST, GET_POST_SUCCESS, UPDATE_POST_SUCCESS } from './postTypes'
+import {  ADD_POST_SUCCESS, DELETE_POST_SUCCESS,  GET_MY_POST_SUCCESS, GET_POST_COUNT_SUCCESS,  GET_POST_SUCCESS, UPDATE_POST_SUCCESS } from './postTypes'
 import { clearError, setError, startLoading, stopLoading } from './appStateActions'
 
 

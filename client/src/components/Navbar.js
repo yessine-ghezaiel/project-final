@@ -15,16 +15,12 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import { useSelector, useDispatch } from 'react-redux'
-import MenuItem from '@material-ui/core/MenuItem';
 import { Link } from 'react-router-dom'
 import { Avatar } from '@material-ui/core';
 import { logout } from '../redux/actions/authActions';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import FacebookIcon from '@material-ui/icons/Facebook';
-import Menu from '@material-ui/core/Menu';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
 import HomeIcon from '@material-ui/icons/Home';
 import DirectionsCarIcon from '@material-ui/icons/DirectionsCar';

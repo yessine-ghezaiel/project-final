@@ -1,21 +1,14 @@
 import React, { useState } from "react";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import Avatar from '@material-ui/core/Avatar';
 import './postDetails.css'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useDispatch, useSelector } from "react-redux";
 import { deletepost, getPost, UpdatePost } from "../redux/actions/postActions";
-import AddPost from "./AddPost";
 import Compressor from 'compressorjs'
-import { Button, makeStyles, TextareaAutosize, TextField } from "@material-ui/core"
+import { Button, makeStyles, TextareaAutosize} from "@material-ui/core"
 import { useHistory } from "react-router";
 import {getComment} from "../redux/actions/commentActions";
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 
 const useStyles = makeStyles({
   root: {

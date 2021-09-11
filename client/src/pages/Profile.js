@@ -1,16 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import { getProfile, logout } from '../redux/actions/authActions'
-import {Redirect} from 'react-router-dom'
 import AddPost from '../components/AddPost'
 import  { getMyPost } from '../redux/actions/postActions'
-import Post from '../components/Post'
 import { makeStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 
-import PostsList from '../components/PostList'
-import { Button ,Card, IconButton, InputBase } from '@material-ui/core'
-import {Link, useHistory} from 'react-router-dom'
+import {  IconButton, InputBase } from '@material-ui/core'
 import MyPosts from '../components/MyPosts'
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -41,11 +36,8 @@ const Profile =  () => {
     const dispatch = useDispatch()
     console.log(search)
     useEffect(() => {
-        
         dispatch(getMyPost(search))
     }, [])
-    // console.log(postList)
-    // console.log(auth)
     const classes = useStyles();
     return (
       <div
@@ -59,7 +51,7 @@ const Profile =  () => {
       >
         <div style={{marginLeft:'auto',marginRight:'auto' ,marginTop:'20%'}}>
 
-          <img  style={{marginLeft:'25%', height:'150px',borderRadius:'50%',width:'150px'}} src={auth.user.image.url || auth.user.image}></img>
+          <img  alt='' style={{marginLeft:'25%', height:'150px',borderRadius:'50%',width:'150px'}} src={auth.user.image.url || auth.user.image}></img>
           <h1  style={{textAlign:'center'}}> {auth.user.firstname} {auth.user.lastname}   </h1>
           <h4 style={{textAlign:'center'}}> {auth.user.email}</h4>
         </div>

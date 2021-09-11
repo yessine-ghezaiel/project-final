@@ -1,19 +1,13 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import React, { useEffect, useState } from "react";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
+
 import Avatar from '@material-ui/core/Avatar';
 import './postDetails.css'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useDispatch, useSelector } from "react-redux";
 import { deletepost, getPost, UpdatePost } from "../redux/actions/postActions";
-import AddPost from "./AddPost";
 import Compressor from 'compressorjs'
-import { Button, makeStyles, TextareaAutosize, TextField } from "@material-ui/core"
+import { Button, makeStyles, TextareaAutosize} from "@material-ui/core"
 import { useHistory } from "react-router";
 import './detail.css'
 import AddComment from './AddComment'
@@ -40,7 +34,7 @@ const PostDetail = ({match}) => {
     const classes = useStyles();
     const postList = useSelector(state => state.posts.postList)
 
-    const post= postList.find((a)=>a._id == match.params._id) 
+    const post= postList.find((a)=>a._id === match.params._id) 
 
 
   const [selectedImage, setSelectedImage] = useState("")
@@ -111,55 +105,11 @@ const PostDetail = ({match}) => {
   }
 
   return (
-    // <div style={{marginTop:'200px'}}>
-    //   <div className='container mt-5' style={{width:'40%',marginTop:'200px'}} >
-    //     <div class="row">
-    //       <div class="col-12">
-    //         <article class="blog-card">
-              
-    //           <div class="blog-card__info">
-    //             <h5>HARVICK GETS WHAT HE NEEDS, JOHNSON AMONG THOSE</h5>
-    //             <p style={{display:'flex',contentDirection:'row'}}>
-               
-    //                 <Avatar alt="Remy Sharp" src='./' className={classes.small} />
-    //                 <div>
-
-    //                 <i class="fa fa-pencil-square-o"></i> Tony Jahson
-                     
-    //                 <br />
-                    
-    //                 <i class="fa fa-comments-o"></i> 150 
-    //                 <i class="fa fa-comments-o"></i> 150
-    //                 </div>
-                    
-                  
-    //             </p>
-    //             <p>
-    //               Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-    //               Doloremque vero libero voluptatibus earum? Alias dignissimos
-    //               quo cum, nulla esse facere atque, blanditiis doloribus at sunt
-    //               quas, repellendus vel? Et, hic!
-    //             </p>
-    //             <a href="#" class="btn btn--with-icon">
-    //               <i class="btn-icon fa fa-long-arrow-right"></i>READ MORE
-    //             </a>
-    //           </div>
-    //         </article>
-    //       </div>
-    //     </div>
-    //   </div>
-
-    //   <section class="detail-page">
-    //     <div class="container mt-5"></div>
-    //   </section>
-    // </div>
 
 
 
 
-
-
-    <div style={{marginTop:'-10%',paddingTop:'15%',overflow:'auto',background:'lightgray',minHeight:800}}>
+    <div style={{marginTop:'-10%',paddingTop:'15%',overflow:'auto',background:'lightgray',minHeight:850}}>
       <div className='container mt-1' style={{ width: "40%", border:'',borderRadius: '12px',minHeight:'100%' }}>
         <div class="row">
           <div class="col-12" >
@@ -186,7 +136,7 @@ const PostDetail = ({match}) => {
                 </div>
                 {post.image ?
                             
-                            <img name="preview" style={{ display: 'block',
+                            <img alt='' name="preview" style={{ display: 'block',
                               marginLeft: 'auto',
                               marginRight: 'auto',
                               width: '50%'}} src={post.image.url || post.image} ></img>
@@ -194,7 +144,7 @@ const PostDetail = ({match}) => {
                         }<br />            
                     
                     {auth.isAuth &&(
-                    auth.user._id == post.owner._id ? 
+                    auth.user._id === post.owner._id ? 
                     <><Button onClick={()=>deletecar()} style={{backgroundColor:'#DC143C',color:'white',marginTop:'5%'}}><DeleteForeverIcon /></Button> <Button onClick={()=>startedit()}  style={{backgroundColor:'lime',color:'white',marginTop:'5%'}}>Edit</Button></>
                     : null
                     )}
@@ -206,7 +156,7 @@ const PostDetail = ({match}) => {
                         {/* {selectedImage && <img name="preview" style={{ height: "100px" }} src={selectedImage || "./images/default.jpg"} alt="preview"></img>} */}
                         {post.image ?
                             
-                            <img name="preview" style={{ height: "100px" }} src={selectedImage =='' ? 
+                            <img alt='' name="preview" style={{ height: "100px" }} src={selectedImage ==='' ? 
                             post.image.url || post.image || '':selectedImage} ></img>
                             : null
                         }<br />
@@ -263,7 +213,10 @@ const PostDetail = ({match}) => {
                 
                 </div>
           </div>
-                <AddComment postID={post._id} ></AddComment>
+          {auth.isAuth ?
+
+                <><AddComment postID={post._id} ></AddComment></>:null
+          }
                 <CommentList  postId={post._id} ></CommentList>
         </div>
       </div>

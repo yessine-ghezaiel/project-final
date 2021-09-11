@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect} from 'react'
 
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -21,7 +21,7 @@ const CommentList = ({postId}) => {
     return (
         <div style={{backgroundColor:'lightgrey',marginTop:'-10%',paddingTop:'15%'}}>
             
-            {commentList.length == 0 ? null  : commentList.length && commentList.map((comment, index) => <CommentPost  key={index} postid={postid} comment={comment}></CommentPost>).reverse()}
+            {commentList.length === 0 ? null  : commentList.length && commentList.map((comment, index) => <CommentPost  key={index} postid={postid} comment={comment}></CommentPost>).reverse()}
             
             
         </div>

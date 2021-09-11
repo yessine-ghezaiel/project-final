@@ -12,7 +12,7 @@ const AdminRoute = ({ component: Component, ...rest }) => {
         <Route
             {...rest}
             render={(props) =>
-                auth.isAuth && auth.user.role !='admin' ? <Redirect to="/" /> : <Component {...props} />
+                auth.isAuth && auth.user.role !=='admin' ? <Redirect to="/" /> : <Component {...props} />
             }
         />
     );

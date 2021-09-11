@@ -1,22 +1,16 @@
 import  React,{useState} from 'react'
 import Compressor from 'compressorjs'
-import Icon from '@material-ui/core/Icon';
 import {Updatecardealer } from '../redux/actions/carDealerActions';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import TextField from '@material-ui/core/TextField';
-import { Link } from 'react-router-dom'
 import Grid from '@material-ui/core/Grid';
-import Box from '@material-ui/core/Box';
-import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { useDispatch, useSelector } from 'react-redux';
-import { register } from '../redux/actions/authActions';
 import { useHistory } from 'react-router-dom';
-import AccountCircle from '@material-ui/icons/AccountCircle';
 import DriveEtaIcon from '@material-ui/icons/DriveEta';
 import './add.css'
 
@@ -49,7 +43,6 @@ const useStyles = makeStyles((theme) => ({
 
 
 const UpdateCardealer = ({match}) => {
-    const auth = useSelector(state => state.auth)
     const classes = useStyles();
     const history = useHistory()
 
@@ -57,7 +50,7 @@ const UpdateCardealer = ({match}) => {
     const [selectedImage, setSelectedImage] = useState("")
     const [selectedImage_name, setSelectedImage_name] = useState("")
     const cardealerList = useSelector((state) => state.cardealers.cardealerList);
-    const cardealer= cardealerList.find((a)=>a._id == match.params._id) 
+    const cardealer= cardealerList.find((a)=>a._id === match.params._id) 
 
     const [newCarDealer, setNewCarDealer] = useState({
 
@@ -217,9 +210,9 @@ const UpdateCardealer = ({match}) => {
                                 />
                             </Grid>
                             <Grid item xs={12} style={{ display: "flex", flexDirection: "column" }}>
-                            {selectedImage =="" ?
+                            {selectedImage ==="" ?
                             
-                            <img name="preview" style={{ height: "120px", width: "80px" }} src={newCarDealer.image.url || newCarDealer.image} ></img>
+                            <img alt='' name="preview" style={{ height: "120px", width: "80px" }} src={newCarDealer.image.url || newCarDealer.image} ></img>
                             :null}
                                 <input
                                     accept="image/*"

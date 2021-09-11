@@ -1,17 +1,9 @@
 import React, { useState } from "react";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Typography from "@material-ui/core/Typography";
 import Avatar from '@material-ui/core/Avatar';
 import './postDetails.css'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useDispatch, useSelector } from "react-redux";
-import AddPost from "./AddPost";
-import Compressor from 'compressorjs'
-import { Button, makeStyles, TextareaAutosize, TextField } from "@material-ui/core"
+import { Button, makeStyles, TextareaAutosize} from "@material-ui/core"
 import { useHistory } from "react-router";
 import { getComment,updateComment ,deletecomment} from "../redux/actions/commentActions";
 const useStyles = makeStyles({
@@ -82,7 +74,7 @@ const handleSubmit =(e)=>{
 
                     
                     {auth.isAuth &&
-                      (auth.user._id == comment.owner._id ? (
+                      (auth.user._id === comment.owner._id ? (
                         <>
                           <Button  onClick={()=>{ dispatch(deletecomment(comment._id)); dispatch(getComment(comment.post))}} style={{backgroundColor: "#DC143C",color: "white"}}> <DeleteForeverIcon /></Button> 
                             <Button onClick={() => startedit()} style={{ backgroundColor: "lime", color: "white" }}> Edit </Button>
