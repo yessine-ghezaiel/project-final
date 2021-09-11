@@ -3,11 +3,15 @@
   "version": "1.0.0",
   "description": "project pfe",
   "main": "server.js",
+  "engine":{
+    "node":"13.14.0",
+    "npm":"6.14.4"
+  },
   "scripts": {
     "server": "cd server && nodemon server.js",
     "client": "cd client && npm start",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild":"cd client && npm install && npm run build"
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false cd client && npm install --prefix  && npm run build --prefix client"
   },
   "author": "yessine ghezaiel",
   "license": "ISC",
