@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "project pfe",
   "main": "server.js",
-  "engine":{
+  "engines":{
     "node":"v13.14.0",
     "npm":"6.14.4"
   },
