@@ -1,11 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { addPost } from "../redux/actions/postActions";
 import {
-Button,makeStyles,TextareaAutosize,TextField} from "@material-ui/core";
+Button,makeStyles,TextareaAutosize} from "@material-ui/core";
 import { addComment, getComment } from "../redux/actions/commentActions";
 
-//lets try without it later
 const useStyles = makeStyles((theme) => ({
   root: {
     "& > *": {

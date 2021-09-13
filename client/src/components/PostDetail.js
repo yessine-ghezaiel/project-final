@@ -43,7 +43,7 @@ const PostDetail = ({match}) => {
   const auth = useSelector(state => state.auth)
   const dispatch = useDispatch()
   const [edit, setEdit] = useState(true)
-  const [limit, setLimit] = useState(5)
+  const limit=5
   const [selectedImage_name, setSelectedImage_name] = useState("")
    useEffect(() => {
     dispatch(getComment(post._id))

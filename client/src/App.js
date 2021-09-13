@@ -12,7 +12,6 @@ import CarDealerList from './components/CarDealerList';
 
 import CardealerDetails from './components/CardealerDetails';
 import UpdateCardealer from './components/UpdateCardealer';
-import AdminRoute from './privateRoutes/AdminRoute';
 import PostDetail from './components/PostDetail';
 import PostList from './components/PostList';
 

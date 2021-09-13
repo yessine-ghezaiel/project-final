@@ -1,13 +1,13 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { Button ,Card,ListGroup, ListGroupItem} from 'react-bootstrap';
+import { Button ,Card} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link, useHistory} from 'react-router-dom'
 import './cardealerdetails.css'
 import { deletecardealer } from '../redux/actions/carDealerActions';
 const CardealerDetails = ({match}) => {
     const cardealerList = useSelector((state) => state.cardealers.cardealerList);
-    const cardealer= cardealerList.find((a)=>a._id == match.params._id) 
+    const cardealer= cardealerList.find((a)=>a._id === match.params._id) 
     const history = useHistory()
     const auth = useSelector(state => state.auth)
     const dispatch = useDispatch();
@@ -39,16 +39,12 @@ const CardealerDetails = ({match}) => {
                              {cardealer.email}</Card.Text>
                         <Card.Text>Phone Number: <Card.Text></Card.Text> {cardealer.phoneNumber}</Card.Text>
                         <Card.Text>Adresse: <Card.Text></Card.Text> {cardealer.adresse}</Card.Text>
-                        <iframe src={cardealer.src_maps} style={{border:0,width:'30rem', height:'300px' }} ></iframe>
+                        <iframe title='location' src={cardealer.src_maps} style={{border:0,width:'30rem', height:'300px' }} ></iframe>
                     </Card.Body>
-                        {/* <ListGroup className="list-group-flush">
-                        <ListGroupItem>Adresse city: {cardealer.address.city}</ListGroupItem>
-                        <ListGroupItem>Adresse Street: {cardealer.address.street}</ListGroupItem>
-                        <ListGroupItem>Adresse Suite: {cardealer.address.suite}</ListGroupItem>
-                    </ListGroup> */}
+                        
                     {auth.isAuth &&(
             
-            auth.user.role == 'admin' ? 
+            auth.user.role === 'admin' ? 
             <>  <Button onClick={()=>deletecar()} variant="danger">Delete</Button>  </> 
             :
             null

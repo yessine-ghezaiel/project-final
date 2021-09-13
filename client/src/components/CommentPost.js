@@ -4,7 +4,6 @@ import './postDetails.css'
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 import { useDispatch, useSelector } from "react-redux";
 import { Button, makeStyles, TextareaAutosize} from "@material-ui/core"
-import { useHistory } from "react-router";
 import { getComment,updateComment ,deletecomment} from "../redux/actions/commentActions";
 const useStyles = makeStyles({
     root: {
@@ -13,7 +12,6 @@ const useStyles = makeStyles({
   });
 const CommentPost = ({postid,comment}) => {
     const classes = useStyles();
-    const history = useHistory()
   
     const auth = useSelector(state => state.auth)
     const dispatch = useDispatch()
@@ -39,12 +37,7 @@ const handleSubmit =(e)=>{
     setEdit(true)
 }
 
-  const deletecmnt = () => {
 
-    dispatch(deletecomment(comment._id))
-    dispatch(getComment(comment.post))
-    
-  }
 
     return (
       <div>

@@ -40,7 +40,7 @@ const PostsList = () => {
     const count = useSelector(state => state.posts.count)
     const dispatch = useDispatch()
     const [page, setPage] = useState(1)
-    const [limit, setLimit] = useState(7)
+    const limit=7
     const [search, setSearch] = useState('')
 
     useEffect(() => {

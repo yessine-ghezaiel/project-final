@@ -2,11 +2,9 @@ import  React,{useState} from 'react'
 import { useDispatch } from 'react-redux'
 import {addPost} from '../redux/actions/postActions'
 import Compressor from 'compressorjs'
-import { Button, makeStyles, TextareaAutosize, TextField } from "@material-ui/core"
-import Icon from '@material-ui/core/Icon';
+import { Button, makeStyles, TextareaAutosize} from "@material-ui/core"
 
 
-//lets try without it later
 const useStyles = makeStyles((theme) => ({
     root: {
         '& > *': {

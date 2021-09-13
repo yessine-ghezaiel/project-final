@@ -8,11 +8,8 @@ import CommentPost from './CommentPost'
 
 const CommentList = ({postId}) => {
     const commentList = useSelector(state => state.comments.commentList)
-    const auth = useSelector(state => state.auth)
-    const count = useSelector(state => state.posts.count)
     const dispatch = useDispatch()
     const postid ={postId}
-    console.log(postid)
     useEffect(() => {
         dispatch(getComment(postId))
     }, [])
