@@ -11,7 +11,7 @@ export const addPost = (newPost) =>async (dispatch)=>{
         dispatch(startLoading("Adding post ..."))
         dispatch(clearError())
         setToken()
-        const {data} = await axios.post(`${prefixe}/api/post/addpost`,newPost)
+        const {data} = await axios.post(`/api/post/addpost`,newPost)
         dispatch({
             type:ADD_POST_SUCCESS,
             payload:data
@@ -29,7 +29,7 @@ export const getPost = (page, limit,search) => async (dispatch) => {
     try {
         dispatch(startLoading("Getting Posts..."))
         dispatch(clearError())
-        const { data } = await axios.get(`${prefixe}/api/post/posts?page=${page}&limit=${limit}&search=${search}`)
+        const { data } = await axios.get(`/api/post/posts?page=${page}&limit=${limit}&search=${search}`)
         dispatch({
             type: GET_POST_SUCCESS,
             payload: data
@@ -47,7 +47,7 @@ export const getPostCount = () => async (dispatch) => {
     dispatch(startLoading("Get post count"))
     try {
         
-        const { data } = await axios.get(`${prefixe}/api/post/postcount`)
+        const { data } = await axios.get(`/api/post/postcount`)
         dispatch({
             type: GET_POST_COUNT_SUCCESS,
             payload: data
@@ -69,7 +69,7 @@ export const getMyPost = (search) => async (dispatch) => {
     try {
         setToken()
         
-        const { data } = await axios.get(`${prefixe}/api/post/myposts?search=${search}`)
+        const { data } = await axios.get(`/api/post/myposts?search=${search}`)
         dispatch({
             type: GET_MY_POST_SUCCESS,
             payload: data
@@ -91,7 +91,7 @@ export const deletepost = (_id) =>async (dispatch)=>{
 
     try {
         setToken()
-        const res = await axios.delete(`${prefixe}/api/post/deletepost/${_id}`)
+        const res = await axios.delete(`/api/post/deletepost/${_id}`)
         dispatch({
             type: DELETE_POST_SUCCESS,
             payload: res.data
@@ -114,7 +114,7 @@ export const UpdatePost = (_id,newPost) =>async (dispatch)=>{
 
     try {
         setToken()
-        const res = await axios.put(`${prefixe}/api/post/updatepost/${_id}`,newPost)
+        const res = await axios.put(`/api/post/updatepost/${_id}`,newPost)
         dispatch({
             type: UPDATE_POST_SUCCESS,
             payload: res.data

@@ -12,7 +12,7 @@ export const addCarDealer = (newCarDealer) =>async (dispatch)=>{
     setToken()
 
     try {
-        const res = await axios.post(`${prefixe}/api/car/addcardealer`,newCarDealer)
+        const res = await axios.post(`/api/car/addcardealer`,newCarDealer)
         dispatch({
             type: ADD_CARDEALER_SUCCESS,
             payload: res.data
@@ -29,7 +29,7 @@ export const addCarDealer = (newCarDealer) =>async (dispatch)=>{
 
 
 //     try{
-//         const { data } = await axios.post(`${prefixe}/api/car/addcardealer`,newCarDealer)
+//         const { data } = await axios.post(`/api/car/addcardealer`,newCarDealer)
 //         dispatch({
 //             type:ADD_CARDEALER_SUCCESS,
 //             payload:data
@@ -46,7 +46,7 @@ export const getCarDealer = (page, limit) => async (dispatch) => {
     try {
         dispatch(startLoading("Getting Cardealers..."))
         dispatch(clearError())
-        const { data } = await axios.get(`${prefixe}/api/car/cardealers?page=${page}&limit=${limit}`)
+        const { data } = await axios.get(`/api/car/cardealers?page=${page}&limit=${limit}`)
         console.log('data',data);
         dispatch({
             type: GET_CARDEALER_SUCCESS,
@@ -64,7 +64,7 @@ export const getCarDealerCount = () => async (dispatch) => {
     dispatch(clearError())
     dispatch(startLoading("Get cardealers count"))
     try {
-        const { data } = await axios.get(`${prefixe}/api/car/cardealercount`)
+        const { data } = await axios.get(`/api/car/cardealercount`)
         dispatch({
             type: GET_CARDEALER_COUNT_SUCCESS,
             payload: data
@@ -83,7 +83,7 @@ export const Updatecardealer = (_id,newCarDealer) =>async (dispatch)=>{
 
     try {
         setToken()
-        const res = await axios.put(`${prefixe}/api/car/updatecardealer/${_id}`,newCarDealer)
+        const res = await axios.put(`/api/car/updatecardealer/${_id}`,newCarDealer)
         dispatch({
             type: UPDATE_CARDEALER_SUCCESS,
             payload: res.data
@@ -107,7 +107,7 @@ export const deletecardealer = (_id) =>async (dispatch)=>{
 
     try {
         setToken()
-        const res = await axios.delete(`${prefixe}/api/car/deletecardealer/${_id}`)
+        const res = await axios.delete(`/api/car/deletecardealer/${_id}`)
         dispatch({
             type: UPDATE_CARDEALER_SUCCESS,
             payload: res.data

@@ -11,7 +11,7 @@ export const addComment = (id,newComment) =>async (dispatch)=>{
         dispatch(startLoading("Adding comment ..."))
         dispatch(clearError())
         setToken()
-        const {data} = await axios.post(`${prefixe}/api/comment/addcomment/${id}`,newComment)
+        const {data} = await axios.post(`/api/comment/addcomment/${id}`,newComment)
         dispatch({
             type:ADD_COMMENT_SUCCESS,
             payload:data
@@ -29,7 +29,7 @@ export const getComment = (id) => async (dispatch) => {
     try {
         dispatch(startLoading("Getting Posts..."))
         dispatch(clearError())
-        const { data } = await axios.get(`${prefixe}/api/comment/comments/${id}`)
+        const { data } = await axios.get(`/api/comment/comments/${id}`)
         dispatch({
             type: GET_COMMENT_SUCCESS,
             payload: data
@@ -46,7 +46,7 @@ export const getCommentCount = () => async (dispatch) => {
     dispatch(clearError())
     dispatch(startLoading("Get Comment count"))
     try {
-        const { data } = await axios.get(`${prefixe}/api/comment/commentcount`)
+        const { data } = await axios.get(`/api/comment/commentcount`)
         dispatch({
             type: GET_COMMENT_COUNT_SUCCESS,
             payload: data
@@ -69,7 +69,7 @@ export const deletecomment = (id) =>async (dispatch)=>{
 
     try {
         setToken()
-        const res = await axios.delete(`${prefixe}/api/comment/deletecomment/${id}`)
+        const res = await axios.delete(`/api/comment/deletecomment/${id}`)
         dispatch({
             type: DELETE_COMMENT_SUCCESS,
             payload: res.data
@@ -92,7 +92,7 @@ export const updateComment = (id,newComment) =>async (dispatch)=>{
 
     try {
         setToken()
-        const res = await axios.put(`${prefixe}/api/comment/updatecomment/${id}`,newComment)
+        const res = await axios.put(`/api/comment/updatecomment/${id}`,newComment)
         console.log(res)
         dispatch({
             type: UPDATE_COMMENT_SUCCESS,
